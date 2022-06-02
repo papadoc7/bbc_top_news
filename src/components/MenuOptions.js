@@ -86,19 +86,19 @@ export default function MenuOptions(props) {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={()=>handleItemClick('gb')} disableRipple>
           UK
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={()=>handleItemClick('us')} disableRipple>
           US
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={()=>handleItemClick('fr')} disableRipple>
           France
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={()=>handleItemClick('au')} disableRipple>
           Australia
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={()=>handleItemClick('in')} disableRipple>
           India
         </MenuItem>
       </StyledMenu>
