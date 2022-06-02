@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import MenuOptions from './MenuOptions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,7 @@ export default function ButtonAppBar(props) {
             News for UK
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuOptions updateCountry={props.updateCountry}/>
           </IconButton>
         </Toolbar>
       </AppBar>
