@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import "isomorphic-fetch";
 import Page from './Page';
+import Loading from './Loading';
 
-
-//const API = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=94410834cf544a44a87cfae8d51cfad1';
 const API = 'https://newsapi.org/v2/top-headlines';
 const APIKey = '94410834cf544a44a87cfae8d51cfad1'
 
@@ -42,11 +41,8 @@ class App extends Component {
      */
     loadCountry() {
         this.setState({ isLoading: true });
-        //const articleUrl = API + `article-${this.state.articleNumber}.json`
 
         const countryUrl = API +  `?country=${this.props.code}&apiKey=${APIKey}`
-        console.log("countryUrl", countryUrl)
-
 
         fetch(countryUrl)
             //throwing an error when the response doesn’t match the expected data
@@ -58,7 +54,6 @@ class App extends Component {
                 }
             })
             .then(data => {
-                console.log('data', data)
                 this.setState({ country: data, isLoading: false });
             })
             .catch(error => this.setState({ error, isLoading: false }));
@@ -86,12 +81,12 @@ class App extends Component {
 
         //display a loading indicator
         if (isLoading) {
-          return <p>Loading ...</p>
+          return <Loading />
         }
 
         return (
             <>
-                <Page country={country} countryUrl={countryUrl} changePage={this.changePage} countryNumber={countryNumber} />
+              <Page country={country} countryUrl={countryUrl} changePage={this.changePage} />
             </>
         );
     }

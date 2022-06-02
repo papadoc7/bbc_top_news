@@ -43,7 +43,7 @@ export default function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-          {`News for ${displayCountry(props.code)}`}
+            {`News for ${displayCountry(props.code)}`}
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuOptions updateCountry={props.updateCountry}/>
