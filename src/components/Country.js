@@ -59,7 +59,7 @@ class App extends Component {
             })
             .then(data => {
                 console.log('data', data)
-                this.setState({ country: this.state.countries[this.state.countryNumber-1], isLoading: false, countryUrl: countryUrl })
+                this.setState({ country: data, isLoading: false });
             })
             .catch(error => this.setState({ error, isLoading: false }));
     }

@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = theme => ({
   card: {
@@ -23,44 +26,18 @@ const styles = theme => ({
 
 class Page extends React.Component {
 
-  displayCountry(code) {
-      switch(code) {
-        case 'gb':
-          return 'United Kingdom';
-        case 'us':
-          return 'United States';
-        case 'fr':
-          return 'France';
-        case 'au':
-          return 'Australia';
-        case 'in':
-          return 'India';
-        default:
-          return 'United Kingdom';
-      }
-  }
-
-  returnTitle() {
-    return (
-      <>
-        Top 5 headlines for {this.displayCountry(this.props.country)} <br /><br />
-        {this.props.countryNumber} page component <br />
-        {this.props.country} page component <br />
-        {this.props.countryUrl} <br />
-      </>
-    )
-
-  }
-
-
   render() {
+    const { classes, country } = this.props;
 
     return (
-      <>
-        {this.returnTitle()}
-      </>
+      country?.articles.map((article) =>
+        <List component="nav" className={classes.root} aria-label="contacts">
+          <ListItem button>
+            <ListItemText primary={article.title} />
+          </ListItem>
+        </List>
+      )
     )
-
   }
 }
 
