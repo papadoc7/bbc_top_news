@@ -31,8 +31,8 @@ class Page extends React.Component {
 
     return (
       country?.articles.slice(0,5).map((article) =>
-        <List component="nav" className={classes.root} aria-label="contacts">
-          <ListItem button>
+        <List component="nav" className={classes.root} aria-label="contacts" key={article?.publishedAt}>
+          <ListItem>
             <ListItemText primary={article.title} />
           </ListItem>
         </List>
