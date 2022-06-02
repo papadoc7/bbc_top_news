@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AppBar from '../src/components/AppBar';
+import Country from '../src/components/Country';
 
 class App extends Component {
 
@@ -20,7 +21,8 @@ class App extends Component {
     render() {
         return (
             <>
-                <AppBar />
+                <AppBar code={this.state.country} updateCountry={this.updateCountry} />
+                <Country code={this.state.country} />
             </>
         );
     }
