@@ -30,7 +30,7 @@ class Page extends React.Component {
     const { classes, country } = this.props;
 
     return (
-      country?.articles.map((article) =>
+      country?.articles.slice(0,5).map((article) =>
         <List component="nav" className={classes.root} aria-label="contacts">
           <ListItem button>
             <ListItemText primary={article.title} />
