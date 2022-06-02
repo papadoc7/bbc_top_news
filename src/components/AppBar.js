@@ -21,12 +21,29 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar(props) {
   const classes = useStyles();
 
+  const displayCountry = (countryCode) => {
+    switch(countryCode) {
+      case 'gb':
+        return 'United Kingdom';
+      case 'us':
+        return 'United States';
+      case 'fr':
+        return 'France';
+      case 'au':
+        return 'Australia';
+      case 'in':
+        return 'India';
+      default:
+        return 'United Kingdom';
+    }
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            News for UK
+          {`News for ${displayCountry(props.code)}`}
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuOptions updateCountry={props.updateCountry}/>
